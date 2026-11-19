@@ -1,5 +1,6 @@
-import { initRightEditor } from './components/right/js/index.js';
+import { initTopbar } from './topbar/js/index.js';
 import { initLeftWorkspace } from './components/left/js/index.js';
+import { initRightEditor } from './components/right/js/index.js';
 import {
   channel,
   setEditor,
@@ -23,30 +24,20 @@ async function boot() {
       }
     }
 
+    // 1. Right: Editable Monaco Editor Component
     const editor = await initRightEditor(spec);
     setEditor(editor);
 
+    // 2. Left: Instruction-Driven Spec Element Selectors
     await initLeftWorkspace({ spec, editor });
 
-    // 1. Wire Topbar Buttons
-    const openTab2Btn = document.getElementById('openTab2Btn');
-    if (openTab2Btn) {
-      openTab2Btn.addEventListener('click', openTab2);
-    }
+    // 3. Topbar: Instruction-Driven Actions via bindings.json
+    await initTopbar({
+      onOpenTab2: openTab2,
+      onRenderTab2: playHtml
+    });
 
-    const renderTab2Btn = document.getElementById('renderTab2Btn');
-    if (renderTab2Btn) {
-      renderTab2Btn.addEventListener('click', playHtml);
-    }
-
-    // 2. Keyboard shortcut: Ctrl + Enter / Cmd + Enter renders in Tab 2
-    if (window.monaco && editor) {
-      editor.addCommand(window.monaco.KeyMod.CtrlCmd | window.monaco.KeyCode.Enter, () => {
-        playHtml();
-      });
-    }
-
-    // 3. Channel Listener for Handshakes from Tab 2
+    // 4. Channel Listener for Handshakes from Tab 2 Canvas
     channel.onmessage = ({ data: msg }) => {
       if (!msg) return;
       if (msg.type === 'TAB_READY') {
@@ -62,14 +53,14 @@ async function boot() {
       }
     };
 
-    // 4. Ping Tab 2 to check if already open
+    // 5. Ping Tab 2 to check if already open
     try {
       channel.postMessage({ type: 'TAB_PING' });
     } catch (_) {}
 
     setStatus('Studio ready');
   } catch (error) {
-    console.error('[json-to-dom Tab 1 Init Error]', error);
+    console.error('[json-to-dom V4 Tab 1 Init Error]', error);
   }
 }
 

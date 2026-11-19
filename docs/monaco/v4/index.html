@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Render V3 Architecture — Two-Tab Live Stage · json-to-dom</title>
+  <title>Render V4 Architecture — Two-Tab Live Stage · json-to-dom</title>
   <!-- Ensure directory URLs always have trailing slash so relative paths resolve correctly -->
   <script>
     if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html')) {
@@ -87,12 +87,12 @@
             <ol class="breadcrumb mb-0 px-3 py-1 rounded-pill bg-white bg-opacity-10 text-white border border-white border-opacity-20 small">
               <li class="breadcrumb-item"><a href="../../" class="text-white text-decoration-none">Docs</a></li>
               <li class="breadcrumb-item"><a href="../" class="text-white text-decoration-none">Monaco Hub</a></li>
-              <li class="breadcrumb-item active text-white fw-bold" aria-current="page">V3 Two-Tab</li>
+              <li class="breadcrumb-item active text-white fw-bold" aria-current="page">V4 Two-Tab</li>
             </ol>
           </nav>
-          <h1 class="display-6 fw-bold mb-2">Render V3: Two-Tab Live Stage</h1>
+          <h1 class="display-6 fw-bold mb-2">Render V4: Two-Tab Live Stage</h1>
           <p class="lead mb-0 text-white text-opacity-75" style="max-width: 680px;">
-            The decoupled "Foundry &amp; Canvas" architecture: separating the heavy Monaco IDE studio from the lightweight presentation canvas via <code>BroadcastChannel</code> &amp; <code>localStorage</code>.
+            The decoupled "Foundry &amp; Canvas" architecture with editable Monaco editor, instruction-driven event bindings, and separated CSS/JS discipline.
           </p>
         </div>
 
@@ -123,20 +123,17 @@
         <div>
           <h2 class="h5 fw-bold text-white mb-2">The Story: The Foundry &amp; The Canvas</h2>
           <p class="text-light text-opacity-75 mb-2">
-            Traditional web playgrounds suffer from style leakage and DOM conflicts: the code editor's styles interfere with the preview element styles, and heavy IDE bundles slow down DOM reactivity.
-          </p>
-          <p class="text-light text-opacity-75 mb-3">
-            <strong>Render V2 completely decouples them into two separate browser tabs:</strong>
+            Decoupled Two-Tab workflow adhering to strict modular discipline: separate CSS and JS across Header, Left Workspace, and Right Monaco Editor, with 100% instruction-driven event bindings.
           </p>
           <div class="p-3 rounded-3 small mb-2" style="background: #091322; border: 1px solid var(--card-border);">
             <div class="row g-3">
               <div class="col-md-6 border-end border-secondary border-opacity-25">
                 <div class="fw-bold text-sky-400 mb-1"><i class="bi bi-cpu me-1"></i> Tab 1: The Foundry (Supplier)</div>
-                <p class="text-light text-opacity-50 mb-0">Houses the full Monaco editor studio. Select any component or inspect complete specs, edit the JSON freely, and click <strong>[▶ Render in Tab 2]</strong> to beam the spec across the browser's <code>BroadcastChannel</code> and <code>localStorage</code>.</p>
+                <p class="text-light text-opacity-50 mb-0">Editable Monaco studio with element selector dropdown and "Show all" button. Clicking <strong>[▶ Render in Tab 2]</strong> beams the active JSON spec across <code>BroadcastChannel</code> and <code>localStorage</code>.</p>
               </div>
               <div class="col-md-6">
                 <div class="fw-bold text-emerald-400 mb-1"><i class="bi bi-display me-1"></i> Tab 2: The Canvas (Consumer)</div>
-                <p class="text-light text-opacity-50 mb-0">A pure, clean room with zero buttons, zero headers, and zero Monaco bloat. Listens silently, parses the incoming spec, and compiles live HTML directly into <code>&lt;body id="app"&gt;</code> using <code>json-to-dom</code>.</p>
+                <p class="text-light text-opacity-50 mb-0">Pure HTML canvas with zero buttons, zero headers, and zero Monaco bloat. Listens silently and compiles live HTML into <code>&lt;body id="app"&gt;</code> using <code>json-to-dom</code>.</p>
               </div>
             </div>
           </div>
@@ -164,10 +161,10 @@
             </div>
             <div class="d-flex align-items-baseline gap-2 mb-2">
               <div class="h3 fw-bold text-white mb-0">/tab1/</div>
-              <div class="text-light text-opacity-50 small">Monaco IDE Studio</div>
+              <div class="text-light text-opacity-50 small">Editable Monaco IDE Studio</div>
             </div>
             <p class="small text-light text-opacity-75 mb-3 flex-grow-1">
-              Spec Element dropdown selector, "Show all" library inspector, full-screen Monaco editor, <strong>[Open Tab 2]</strong> launcher, and <strong>[▶ Render in Tab 2]</strong> action with live <code>BroadcastChannel</code> handshake.
+              Spec Element selector, fully editable Monaco editor, <strong>[Open Tab 2]</strong> launcher, and <strong>[▶ Render in Tab 2]</strong> action with live handshake.
             </p>
             <a href="./tab1/" class="btn btn-info fw-bold w-100 py-2 shadow-sm text-dark">
               Open Tab 1 Studio <i class="bi bi-arrow-right ms-1"></i>
@@ -187,7 +184,7 @@
               <div class="text-light text-opacity-50 small">Pure Live HTML Canvas</div>
             </div>
             <p class="small text-light text-opacity-75 mb-3 flex-grow-1">
-              Isolated DOM canvas loaded with Bootstrap 5 and Tailwind. Zero buttons, zero headers. Listens silently for incoming specs, mounts live elements using <code>json-to-dom</code>, and emits a <code>RENDER_ACK</code> handshake.
+              Isolated DOM canvas loaded with Bootstrap 5 and Tailwind. Zero buttons, zero headers. Listens silently for incoming specs and mounts live elements with <code>json-to-dom</code>.
             </p>
             <a href="./tab2/" target="_blank" class="btn btn-outline-success fw-bold w-100 py-2">
               Open Tab 2 Canvas <i class="bi bi-box-arrow-up-right ms-1"></i>
@@ -206,7 +203,7 @@
           <p class="small text-light text-opacity-50 mb-0">Explore interactive Monaco editors and tooling for json-to-dom.</p>
         </div>
         <div class="d-flex gap-2">
-          <a href="../v1/" class="btn btn-sm btn-outline-light">V1 Single Panel</a>
+          <a href="../v3/" class="btn btn-sm btn-outline-light">V3 Studio</a>
           <a href="../" class="btn btn-sm btn-outline-info">Monaco Hub</a>
         </div>
       </div>

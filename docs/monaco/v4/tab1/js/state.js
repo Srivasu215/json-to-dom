@@ -1,12 +1,12 @@
 /**
  * Tab 1 (Supplier) — Centralized State & Channel Bus
- * Channel: BroadcastChannel ('keshavsoft-json-to-dom-v2')
- * Storage: localStorage ('keshavsoft_json_to_dom_v2_content')
+ * Channel: BroadcastChannel ('keshavsoft-json-to-dom-v4')
+ * Storage: localStorage ('keshavsoft_json_to_dom_v4_content')
  */
 
-export const CHANNEL_NAME = 'keshavsoft-json-to-dom-v2';
-export const STORAGE_KEY_CONTENT = 'keshavsoft_json_to_dom_v2_content';
-export const STORAGE_KEY_META = 'keshavsoft_json_to_dom_v2_meta';
+export const CHANNEL_NAME = 'keshavsoft-json-to-dom-v4';
+export const STORAGE_KEY_CONTENT = 'keshavsoft_json_to_dom_v4_content';
+export const STORAGE_KEY_META = 'keshavsoft_json_to_dom_v4_meta';
 
 export const channel = new BroadcastChannel(CHANNEL_NAME);
 
@@ -106,7 +106,7 @@ export function sendPayload() {
  */
 export function openTab2() {
   const url = new URL('../tab2/', location.href);
-  const win = window.open(url.href, 'keshavsoft_json_to_dom_tab2');
+  const win = window.open(url.href, 'keshavsoft_json_to_dom_v4_tab2');
   if (!win) {
     setStatus('Popup blocked. Please allow popups for localhost.', true);
     return;
@@ -121,7 +121,7 @@ export function openTab2() {
 export function playHtml() {
   if (!renderWindow || renderWindow.closed) {
     const url = new URL('../tab2/', location.href);
-    const win = window.open(url.href, 'keshavsoft_json_to_dom_tab2');
+    const win = window.open(url.href, 'keshavsoft_json_to_dom_v4_tab2');
     if (!win) {
       setStatus('Popup blocked. Allow popups for localhost.', true);
       return;

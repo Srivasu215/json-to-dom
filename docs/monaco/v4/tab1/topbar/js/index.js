@@ -6,8 +6,8 @@ const getBindEvents = () =>
   window.ks?.domPrimitiveBindings?.bindEvents ||
   window.ks?.bindEvents;
 
-export async function initTopbar({ onSwitchTab }) {
-  const actions = createTopbarActions({ onSwitchTab });
+export async function initTopbar({ onOpenTab2, onRenderTab2 }) {
+  const actions = createTopbarActions({ onOpenTab2, onRenderTab2 });
 
   let bindEvents = getBindEvents();
   if (typeof bindEvents !== 'function') {
@@ -20,10 +20,11 @@ export async function initTopbar({ onSwitchTab }) {
   if (typeof bindEvents === 'function') {
     bindEvents('topbarContainer', bindings, actions);
   } else {
-    const tab1Btn = document.getElementById('tab1NavBtn');
-    const tab2Btn = document.getElementById('tab2NavBtn');
-    if (tab1Btn) tab1Btn.addEventListener('click', actions.openTab1);
-    if (tab2Btn) tab2Btn.addEventListener('click', actions.openTab2);
+    // Fallback if bindings library is unavailable
+    const openBtn = document.getElementById('openTab2Btn');
+    const renderBtn = document.getElementById('renderTab2Btn');
+    if (openBtn) openBtn.addEventListener('click', actions.openTab2);
+    if (renderBtn) renderBtn.addEventListener('click', actions.renderTab2);
   }
 
   return actions;

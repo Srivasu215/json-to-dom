@@ -3,7 +3,7 @@ export const actions = {
     value: JSON.stringify(initialValue, null, 2),
     language: 'json',
     theme: 'vs-dark',
-    readOnly: true,
+    readOnly: false,
     automaticLayout: true,
     minimap: { enabled: false },
     fontSize: 14,

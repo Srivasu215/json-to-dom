@@ -1,10 +1,10 @@
-export function createTopbarActions({ onSwitchTab }) {
+export function createTopbarActions({ onOpenTab2, onRenderTab2 }) {
   return {
-    openTab1: () => {
-      onSwitchTab('tab1');
-    },
     openTab2: () => {
-      onSwitchTab('tab2');
+      if (typeof onOpenTab2 === 'function') onOpenTab2();
+    },
+    renderTab2: () => {
+      if (typeof onRenderTab2 === 'function') onRenderTab2();
     }
   };
 }

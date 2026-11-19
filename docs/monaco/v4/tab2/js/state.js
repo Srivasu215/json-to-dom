@@ -3,8 +3,8 @@
  * Pure Consumer Canvas: renders specs received via BroadcastChannel or localStorage
  */
 
-export const CHANNEL_NAME = 'keshavsoft-json-to-dom-v2';
-export const STORAGE_KEY_CONTENT = 'keshavsoft_json_to_dom_v2_content';
+export const CHANNEL_NAME = 'keshavsoft-json-to-dom-v4';
+export const STORAGE_KEY_CONTENT = 'keshavsoft_json_to_dom_v4_content';
 
 export const channel = new BroadcastChannel(CHANNEL_NAME);
 

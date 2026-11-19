@@ -10,7 +10,7 @@
       location.replace(location.pathname + '/' + location.search + location.hash);
     }
   </script>
-  <title>keshavsoft-json-to-dom · Monaco Studio (Tab 1)</title>
+  <title>keshavsoft-json-to-dom · Monaco Studio (V4 Tab 1)</title>
   <link rel="stylesheet" href="./topbar/css/topbar.css">
   <link rel="stylesheet" href="./workspace/css/workspace.css">
   <link rel="stylesheet" href="./components/left/css/left.css">
@@ -18,12 +18,12 @@
 </head>
 
 <body>
-  <!-- Header Bar: Actions & Sync Indicators -->
+  <!-- Header Bar: Instruction-driven via bindings.json -->
   <header class="topbar" id="topbarContainer">
     <div class="brand">
       <span class="brand-mark">‹/›</span>
       <strong>keshavsoft-json-to-dom</strong>
-      <span class="crumb">/ Monaco Studio / V3 Tab 1</span>
+      <span class="crumb">/ Monaco Studio / V4 Tab 1</span>
     </div>
 
     <!-- Action Buttons & Status -->
@@ -38,8 +38,8 @@
         </svg>
       </button>
 
-      <!-- Render in Tab 2 (Play) -->
-      <button id="renderTab2Btn" class="btn-render-tab2" type="button" title="Render active Monaco Spec in Tab 2 (Ctrl+Enter)">
+      <!-- Render in Tab 2 -->
+      <button id="renderTab2Btn" class="btn-render-tab2" type="button" title="Render active Monaco Spec in Tab 2">
         <span>▶ Render in Tab 2</span>
       </button>
 
@@ -56,19 +56,19 @@
     </div>
 
     <nav class="topbar-links" aria-label="Workspace navigation">
-      <a href="../" title="Back to V2 Architecture Hub">← Overview</a>
+      <a href="../" title="Back to V4 Architecture Hub">← Overview</a>
       <a href="../../" title="Back to Monaco Hub">Monaco Hub</a>
     </nav>
   </header>
 
   <!-- Workspace: Left Selectors & Right Monaco Editor -->
   <main class="workspace" id="leftWorkspace">
-    <!-- Left Panel: Minimalist Selectors -->
+    <!-- Left Panel: Minimalist Selectors (instruction-driven via bindings.json) -->
     <aside class="left-workspace" aria-label="Spec Element Selectors">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-        <span style="font-size: 11px; font-weight: 700; color: #38bdf8; letter-spacing: 0.5px;">SPEC STUDIO V3</span>
+        <span style="font-size: 11px; font-weight: 700; color: #38bdf8; letter-spacing: 0.5px;">SPEC STUDIO V4</span>
         <a href="../" style="font-size: 11px; color: #8fa5c4; text-decoration: none;"
-          title="Back to V3 Hub">← Hub</a>
+          title="Back to V4 Hub">← Hub</a>
       </div>
 
       <div class="control-group">
@@ -81,7 +81,7 @@
       <button id="showAll" class="show-all-btn" type="button">Show all</button>
     </aside>
 
-    <!-- Right Panel: Clean Monaco Editor -->
+    <!-- Right Panel: Clean Editable Monaco Editor -->
     <section class="right-workspace" aria-label="Monaco Editor">
       <div class="editor-header">
         <span id="editorTitle">spec.json</span>
@@ -94,6 +94,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
   <!-- Load declarative-spec library for spec selection -->
   <script type="module" src="https://keshavsoft.github.io/declarative-spec/dist/v2/min.js"></script>
+  <!-- Load dom-primitive-bindings for instruction-driven event wiring -->
+  <script type="module" src="https://keshavsoft.github.io/dom-primitive-bindings/dist/v8/min.js"></script>
 
   <script type="module" src="./index.js"></script>
 </body>
