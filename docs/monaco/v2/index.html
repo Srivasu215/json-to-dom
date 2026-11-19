@@ -10,20 +10,43 @@
       location.replace(location.pathname + '/' + location.search + location.hash);
     }
   </script>
-  <title>Spec Explorer V5</title>
+  <title>keshavsoft-json-to-dom Studio V2 — Monaco & DOM</title>
+  <!-- Bootstrap CSS for styling rendered DOM components -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./topbar/css/topbar.css">
   <link rel="stylesheet" href="./workspace/css/workspace.css">
   <link rel="stylesheet" href="./components/left/css/left.css">
   <link rel="stylesheet" href="./components/right/css/right.css">
+  <link rel="stylesheet" href="./components/tab2/css/tab2.css">
 </head>
 
 <body>
-  <main class="workspace" id="leftWorkspace">
+  <header class="topbar" id="topbarContainer">
+    <div class="brand">
+      <span class="brand-mark">‹/›</span>
+      <strong>keshavsoft-json-to-dom</strong>
+      <span class="crumb">/ Monaco Studio / V2</span>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav-group">
+      <button id="tab1NavBtn" class="tab-nav-btn active" type="button">Tab 1: Spec Editor</button>
+      <button id="tab2NavBtn" class="tab-nav-btn" type="button">Tab 2: Render DOM</button>
+    </div>
+
+    <nav class="topbar-links" aria-label="Workspace navigation">
+      <a href="../">Monaco Hub</a>
+    </nav>
+  </header>
+
+  <!-- TAB 1: Spec Explorer & Monaco Editor Workspace -->
+  <main class="workspace" id="tab1Workspace">
     <!-- Left Panel: Minimalist Selectors -->
-    <aside class="left-workspace" aria-label="Spec Element Selectors">
+    <aside class="left-workspace" id="leftWorkspace" aria-label="Spec Element Selectors">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-        <span style="font-size: 11px; font-weight: 700; color: #38bdf8; letter-spacing: 0.5px;">SPEC STUDIO V5</span>
+        <span style="font-size: 11px; font-weight: 700; color: #38bdf8; letter-spacing: 0.5px;">SPEC STUDIO V2</span>
         <a href="../" style="font-size: 11px; color: #8fa5c4; text-decoration: none;"
-          title="Back to Monaco Versions Hub">← Hub</a>
+          title="Back to Monaco Hub">← Hub</a>
       </div>
 
       <div class="control-group">
@@ -37,7 +60,7 @@
     </aside>
 
     <!-- Right Panel: Clean Monaco Editor -->
-    <section class="right-workspace" aria-label="Monaco Editor">
+    <section class="right-workspace" id="rightWorkspace" aria-label="Monaco Editor">
       <div class="editor-header">
         <span id="editorTitle">spec.json</span>
         <span id="editorPath">Complete library</span>
@@ -46,8 +69,34 @@
     </section>
   </main>
 
+  <!-- TAB 2: Live DOM Render Workspace -->
+  <section id="tab2Container" class="tab2-pane tab-hidden">
+    <div class="tab2-wrapper">
+      <div class="render-header-card">
+        <div class="header-buttons-left">
+          <button id="executeRenderBtn" class="render-primary-btn" type="button">▶ Render Monaco Spec to DOM</button>
+          <button id="clearDomBtn" class="render-secondary-btn" type="button">Clear Canvas</button>
+        </div>
+        <div class="render-status-msg" id="renderStatusText">Ready to compile and mount DOM</div>
+      </div>
+
+      <div class="render-canvas-box">
+        <div id="dom-render-container">
+          <div class="empty-render-notice">
+            <p>Click <strong>"Render Monaco Spec to DOM"</strong> to compile the active spec from Tab 1 into live elements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+  <!-- Load declarative-spec library for spec selection in Tab 1 -->
   <script type="module" src="https://keshavsoft.github.io/declarative-spec/dist/v2/min.js"></script>
+  <!-- Load keshavsoft-json-to-dom engine -->
+  <script type="module" src="../../dist/min.js"></script>
+  <!-- Optional dom-primitive-bindings -->
+  <script type="module" src="https://keshavsoft.github.io/dom-primitive-bindings/dist/v8/min.js"></script>
 
   <script type="module" src="./index.js"></script>
 </body>

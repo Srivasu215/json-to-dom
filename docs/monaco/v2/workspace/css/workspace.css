@@ -20,9 +20,22 @@ body {
 .workspace {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
-  height: 100vh;
+  height: calc(100vh - 64px);
   gap: 12px;
   padding: 12px;
+}
+
+.workspace.tab-hidden {
+  display: none !important;
+}
+
+.tab2-pane {
+  height: calc(100vh - 64px);
+  display: flex;
+}
+
+.tab2-pane.tab-hidden {
+  display: none !important;
 }
 
 .left-workspace {
