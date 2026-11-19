@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Ensure directory URLs always have trailing slash so relative paths resolve correctly -->
+  <script>
+    if (!location.pathname.endsWith('/') && !location.pathname.split('/').pop().includes('.')) {
+      location.replace(location.pathname + '/' + location.search + location.hash);
+    }
+  </script>
+  <title>keshavsoft-json-to-dom · Monaco Studio (Tab 1)</title>
+  <link rel="stylesheet" href="./topbar/css/topbar.css">
+  <link rel="stylesheet" href="./workspace/css/workspace.css">
+  <link rel="stylesheet" href="./components/left/css/left.css">
+  <link rel="stylesheet" href="./components/right/css/right.css">
+</head>
+
+<body>
+  <!-- Header Bar: Actions & Sync Indicators -->
+  <header class="topbar" id="topbarContainer">
+    <div class="brand">
+      <span class="brand-mark">‹/›</span>
+      <strong>keshavsoft-json-to-dom</strong>
+      <span class="crumb">/ Monaco Studio / V3 Tab 1</span>
+    </div>
+
+    <!-- Action Buttons & Status -->
+    <div class="topbar-actions">
+      <!-- Open Tab 2 -->
+      <button id="openTab2Btn" class="btn-open-tab2" type="button" title="Open separate Tab 2 Canvas">
+        <span>Open Tab 2</span>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </button>
+
+      <!-- Render in Tab 2 (Play) -->
+      <button id="renderTab2Btn" class="btn-render-tab2" type="button" title="Render active Monaco Spec in Tab 2 (Ctrl+Enter)">
+        <span>▶ Render in Tab 2</span>
+      </button>
+
+      <!-- Tab 2 Live Sync Indicator -->
+      <span id="tab2SyncStatus" class="hidden sync-badge live" title="Tab 2 Canvas connected">
+        <span class="pulse-dot"></span>
+        <span>Tab 2 Live</span>
+      </span>
+
+      <!-- Save / Beam Status Notification -->
+      <span id="saveStatus" class="hidden status-badge success">
+        Beamed to Tab 2 ✓
+      </span>
+    </div>
+
+    <nav class="topbar-links" aria-label="Workspace navigation">
+      <a href="../" title="Back to V2 Architecture Hub">← Overview</a>
+      <a href="../../" title="Back to Monaco Hub">Monaco Hub</a>
+    </nav>
+  </header>
+
+  <!-- Workspace: Left Selectors & Right Monaco Editor -->
+  <main class="workspace" id="leftWorkspace">
+    <!-- Left Panel: Minimalist Selectors -->
+    <aside class="left-workspace" aria-label="Spec Element Selectors">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+        <span style="font-size: 11px; font-weight: 700; color: #38bdf8; letter-spacing: 0.5px;">SPEC STUDIO V3</span>
+        <a href="../" style="font-size: 11px; color: #8fa5c4; text-decoration: none;"
+          title="Back to V3 Hub">← Hub</a>
+      </div>
+
+      <div class="control-group">
+        <label for="rootSelect">Spec Element</label>
+        <select id="rootSelect" aria-label="Spec Element">
+          <option value="">Select Element</option>
+        </select>
+      </div>
+
+      <button id="showAll" class="show-all-btn" type="button">Show all</button>
+    </aside>
+
+    <!-- Right Panel: Clean Monaco Editor -->
+    <section class="right-workspace" aria-label="Monaco Editor">
+      <div class="editor-header">
+        <span id="editorTitle">spec.json</span>
+        <span id="editorPath">Complete library</span>
+      </div>
+      <div id="monacoEditor" class="monaco-editor"></div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+  <!-- Load declarative-spec library for spec selection -->
+  <script type="module" src="https://keshavsoft.github.io/declarative-spec/dist/v2/min.js"></script>
+
+  <script type="module" src="./index.js"></script>
+</body>
+
+</html>

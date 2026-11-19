@@ -33,6 +33,7 @@
 </head>
 
 <body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col font-sans">
+  <!-- Navigation Header -->
   <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3">
@@ -40,51 +41,84 @@
         <span class="font-bold text-white tracking-tight">keshavsoft-json-to-dom</span>
         <span class="text-slate-500 font-mono text-xs">/ Monaco Hub</span>
       </div>
-      <a href="../" class="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 hover:text-white hover:border-sky-400 transition">
-        ← Documentation
-      </a>
+      <nav class="flex items-center space-x-3 text-xs font-semibold">
+        <a href="./v1/" class="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">V1</a>
+        <a href="./v2/" class="px-2.5 py-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">V2</a>
+        <a href="./v3/" class="px-3 py-1.5 rounded-lg bg-sky-600/80 text-white hover:bg-sky-500 border border-sky-400/30 transition shadow-sm">V3 (Latest) ↗</a>
+        <a href="../" class="px-3 py-1.5 rounded-lg border border-slate-700 text-slate-300 hover:text-white hover:border-sky-400 transition">
+          ← Docs
+        </a>
+      </nav>
     </div>
   </header>
 
+  <!-- Main Content -->
   <main class="flex-1 max-w-6xl w-full mx-auto px-6 py-12">
     <div class="mb-10">
       <span class="text-xs font-bold uppercase tracking-wider text-sky-400 bg-sky-950/60 border border-sky-800/60 px-3 py-1 rounded-full">Interactive Workspaces</span>
       <h1 class="text-3xl sm:text-4xl font-extrabold text-white mt-4 tracking-tight">Monaco Studio Versions</h1>
       <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
-        Explore and test the <code>json-to-dom</code> orchestrator with interactive Monaco code editors and live DOM rendering.
+        Explore and test the <code>json-to-dom</code> orchestrator across studio generations: from single-panel inspection to full decoupled two-tab live staging.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- V2 Card -->
-      <a href="./v2/" class="group block p-6 rounded-2xl bg-slate-950/50 border border-sky-500/30 hover:border-sky-400 transition-all shadow-lg hover:shadow-sky-500/10">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-xs font-bold uppercase tracking-wider text-sky-300 bg-sky-900/40 border border-sky-700/60 px-2.5 py-1 rounded-md">V2 · Dual-Tab Studio (Latest)</span>
-          <span class="text-slate-500 group-hover:text-sky-400 transition">→</span>
+    <!-- Studio Versions Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- V3 Card (Latest: Decoupled Two-Tab) -->
+      <a href="./v3/" class="group block p-6 rounded-2xl bg-slate-950/70 border-2 border-sky-500/50 hover:border-sky-400 transition-all shadow-xl hover:shadow-sky-500/10 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-sky-300 bg-sky-900/60 border border-sky-600/60 px-2.5 py-1 rounded-md">V3 · Two-Tab (Latest)</span>
+            <span class="text-sky-400 font-bold group-hover:translate-x-1 transition-transform">→</span>
+          </div>
+          <h2 class="text-lg font-bold text-white group-hover:text-sky-300 transition">The Foundry &amp; The Canvas</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            Fully decoupled architecture: <strong>Tab 1 (Studio)</strong> with full-screen Monaco editor and component selector beams specs via <code>BroadcastChannel</code> and <code>localStorage</code> to an isolated, zero-bloat <strong>Tab 2 (Canvas)</strong>.
+          </p>
         </div>
-        <h2 class="text-xl font-bold text-white group-hover:text-sky-300 transition">Tab 1: Spec Editor + Tab 2: Live DOM</h2>
-        <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
-          Integrated dual-tab workspace: Tab 1 inspects and edits JSON specs in Monaco, Tab 2 renders the editor's JSON directly into live browser DOM elements using the <code>json-to-dom</code> engine.
-        </p>
-        <div class="mt-4 flex items-center gap-2 text-xs font-mono text-sky-400">
-          <span>Explore V2 Studio</span>
+        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-sky-400 font-semibold">Launch V3 Two-Tab ↗</span>
+          <span class="text-slate-500">/v3/</span>
         </div>
       </a>
 
-      <!-- V1 Card -->
-      <a href="./v1/" class="group block p-6 rounded-2xl bg-slate-950/50 border border-slate-800 hover:border-slate-700 transition-all shadow-lg">
-        <div class="flex items-center justify-between mb-4">
-          <span class="text-xs font-bold uppercase tracking-wider text-slate-400 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">V1 · Single Panel</span>
-          <span class="text-slate-500 group-hover:text-white transition">→</span>
+      <!-- V2 Card (In-Page Tabs) -->
+      <a href="./v2/" class="group block p-6 rounded-2xl bg-slate-950/50 border border-slate-800 hover:border-slate-700 transition-all shadow-lg flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-300 bg-indigo-950/60 border border-indigo-800/60 px-2.5 py-1 rounded-md">V2 · In-Page Tabs</span>
+            <span class="text-slate-500 group-hover:text-indigo-300 transition">→</span>
+          </div>
+          <h2 class="text-lg font-bold text-white group-hover:text-indigo-300 transition">In-Page Dual-Tab Studio</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            Single-page dual-tab workspace: toggle between editing specifications in Monaco on Tab 1 and viewing mounted live DOM elements on Tab 2 within the same page.
+          </p>
         </div>
-        <h2 class="text-xl font-bold text-white group-hover:text-slate-300 transition">Minimalist Spec Inspector</h2>
-        <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
-          Direct single-panel Monaco editor with dropdown selector to view declarative element specifications.
-        </p>
-        <div class="mt-4 flex items-center gap-2 text-xs font-mono text-slate-400">
-          <span>Open V1 Inspector</span>
+        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-indigo-400 font-semibold">Open V2 Studio →</span>
+          <span class="text-slate-500">/v2/</span>
         </div>
       </a>
+
+      <!-- V1 Card (Single Panel) -->
+      <a href="./v1/" class="group block p-6 rounded-2xl bg-slate-950/50 border border-slate-800 hover:border-slate-700 transition-all shadow-lg flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-md">V1 · Single Panel</span>
+            <span class="text-slate-500 group-hover:text-white transition">→</span>
+          </div>
+          <h2 class="text-lg font-bold text-white group-hover:text-slate-300 transition">Minimalist Spec Inspector</h2>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            Direct single-panel Monaco editor with dropdown selector to inspect raw declarative component JSON specifications with zero distractions.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-400 font-semibold">Open V1 Inspector →</span>
+          <span class="text-slate-500">/v1/</span>
+        </div>
+      </a>
+
     </div>
   </main>
 </body>
