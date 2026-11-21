@@ -105,7 +105,7 @@ export function sendPayload() {
  * Opens Tab 2 in a dedicated browser window/tab
  */
 export function openTab2() {
-  const url = new URL('../tab2/', location.href);
+  const url = new URL('../tab2/index.html', location.href);
   const win = window.open(url.href, 'keshavsoft_json_to_dom_tab2');
   if (!win) {
     setStatus('Popup blocked. Please allow popups for localhost.', true);

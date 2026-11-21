@@ -42,6 +42,7 @@
                 <a href="cdn.html" class="text-slate-600 hover:text-blue-600 transition">CDN Guide</a>
                 <a href="architecture.html" class="text-slate-600 hover:text-blue-600 transition">Architecture</a>
                 <a href="api.html" class="text-slate-600 hover:text-blue-600 transition">API</a>
+                <a href="monaco/index.html" class="text-slate-600 hover:text-blue-600 transition">Monaco Studio</a>
                 <a href="demo.html" class="px-3.5 py-1.5 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 shadow-sm transition flex items-center gap-1.5">
                     <span>Playground</span>
                     <span>&rarr;</span>
@@ -141,62 +142,81 @@
                 <span class="text-xs text-slate-400 font-mono">Clean Architecture</span>
             </div>
 
-            <div class="grid sm:grid-cols-3 gap-6">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
                 <!-- Hub 1: CDN Guide -->
-                <a href="cdn.html" class="group p-6 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-lg transition flex flex-col justify-between">
+                <a href="cdn.html" class="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-lg transition flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold group-hover:bg-blue-600 group-hover:text-white transition mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg font-bold group-hover:bg-blue-600 group-hover:text-white transition mb-3">
                             🌐
                         </div>
-                        <h3 class="text-base font-bold text-slate-900 group-hover:text-blue-600 transition mb-2 flex items-center justify-between">
+                        <h3 class="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition mb-1.5 flex items-center justify-between">
                             <span>CDN Quickstart</span>
                             <span class="text-blue-500 group-hover:translate-x-1 transition">&rarr;</span>
                         </h3>
-                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                            Add via GitHub Pages or jsDelivr CDN. Learn global script registration, ESM imports, and the end-to-end instructions pipeline.
+                        <p class="text-[11px] text-slate-600 leading-relaxed mb-3">
+                            Add via GitHub Pages or jsDelivr. Global script registration, ESM imports, and the pipeline.
                         </p>
                     </div>
-                    <div class="pt-3 border-t border-slate-100 text-xs font-semibold text-blue-600">
+                    <div class="pt-2.5 border-t border-slate-100 text-xs font-semibold text-blue-600">
                         View CDN Guide &rarr;
                     </div>
                 </a>
 
                 <!-- Hub 2: Architecture -->
-                <a href="architecture.html" class="group p-6 bg-white rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-lg transition flex flex-col justify-between">
+                <a href="architecture.html" class="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-lg transition flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl font-bold group-hover:bg-indigo-600 group-hover:text-white transition mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg font-bold group-hover:bg-indigo-600 group-hover:text-white transition mb-3">
                             🏗️
                         </div>
-                        <h3 class="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition mb-2 flex items-center justify-between">
+                        <h3 class="text-sm font-bold text-slate-900 group-hover:text-indigo-600 transition mb-1.5 flex items-center justify-between">
                             <span>Architecture</span>
                             <span class="text-indigo-500 group-hover:translate-x-1 transition">&rarr;</span>
                         </h3>
-                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
+                        <p class="text-[11px] text-slate-600 leading-relaxed mb-3">
                             Deep dive into the 2-Engine design: W3C synthesis with <code>@keshavsoft/json-to-tag</code> and mounting with <code>spec-to-dom</code>.
                         </p>
                     </div>
-                    <div class="pt-3 border-t border-slate-100 text-xs font-semibold text-indigo-600">
+                    <div class="pt-2.5 border-t border-slate-100 text-xs font-semibold text-indigo-600">
                         View Architecture &rarr;
                     </div>
                 </a>
 
                 <!-- Hub 3: API Reference -->
-                <a href="api.html" class="group p-6 bg-white rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-lg transition flex flex-col justify-between">
+                <a href="api.html" class="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-lg transition flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold group-hover:bg-emerald-600 group-hover:text-white transition mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg font-bold group-hover:bg-emerald-600 group-hover:text-white transition mb-3">
                             📖
                         </div>
-                        <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-600 transition mb-2 flex items-center justify-between">
+                        <h3 class="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition mb-1.5 flex items-center justify-between">
                             <span>API Reference</span>
                             <span class="text-emerald-500 group-hover:translate-x-1 transition">&rarr;</span>
                         </h3>
-                        <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                            Function signatures, parameter breakdowns, <code>appendPosition</code> options, and usage recipes with live specimens.
+                        <p class="text-[11px] text-slate-600 leading-relaxed mb-3">
+                            Function signatures, parameters, <code>appendPosition</code> options, and usage recipes.
                         </p>
                     </div>
-                    <div class="pt-3 border-t border-slate-100 text-xs font-semibold text-emerald-600">
+                    <div class="pt-2.5 border-t border-slate-100 text-xs font-semibold text-emerald-600">
                         View API Reference &rarr;
+                    </div>
+                </a>
+
+                <!-- Hub 4: Monaco Studio -->
+                <a href="monaco/index.html" class="group p-5 bg-white rounded-2xl border border-slate-200 hover:border-sky-500 hover:shadow-lg transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center text-lg font-bold group-hover:bg-sky-600 group-hover:text-white transition mb-3">
+                            💻
+                        </div>
+                        <h3 class="text-sm font-bold text-slate-900 group-hover:text-sky-600 transition mb-1.5 flex items-center justify-between">
+                            <span>Monaco Studio</span>
+                            <span class="text-sky-500 group-hover:translate-x-1 transition">&rarr;</span>
+                        </h3>
+                        <p class="text-[11px] text-slate-600 leading-relaxed mb-3">
+                            Interactive workspaces across V1–V4 studio generations: instruction-driven two-tab live staging.
+                        </p>
+                    </div>
+                    <div class="pt-2.5 border-t border-slate-100 text-xs font-semibold text-sky-600">
+                        Open Monaco Hub &rarr;
                     </div>
                 </a>
 

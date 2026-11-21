@@ -168,7 +168,7 @@ This matches the real-world flow from `samples/v4/table`:
     <script type="module" src="https://keshavsoft.github.io/declarative-instructions/dist/v2/min.js"></script>
     <script type="module" src="https://keshavsoft.github.io/declarative-definitions/dist/v2/min.js"></script>
     <script type="module" src="https://keshavsoft.github.io/declarative-spec/dist/v2/min.js"></script>
-    <script type="module" src="https://keshavsoft.github.io/json-renderers-run-instructions-steps/dist/v4/min.js"></script>
+    <script type="module" src="https://keshavsoft.github.io/json-renderers-run-instructions-steps/dist/v5/min.js"></script>
     <!-- 2. Master DOM Orchestrator CDN -->
     <script type="module" src="https://keshavsoft.github.io/json-to-dom/dist/v42/min.js"></script>
 
